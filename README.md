@@ -35,11 +35,11 @@ Install the plugin as described above, activate it and choose the settings you p
 
 ## Contact/Support
 
-Contact us via support@ojs-de.net. Find out more about the project [OJS-de.net](http://www.ojs-de.net/kontakt/index.html).
+Contact us via rosi.project@tib.eu. Find out more about the project [ROSI](https://tib.eu/rosi-project).
 
 ## Version History
 
-* 1.0 - Open Impact plugin for OJS 3
+* 1.0 - Open Impact Plugin for OJS 3
 
 ## Technical Documentation
 
