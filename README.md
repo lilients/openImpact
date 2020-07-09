@@ -1,22 +1,20 @@
 # Open Impact Vizualizer Plugin
 
-This plugin adds impact information to to the article page. It implements ImpactViz ([Github](https://github.com/tibhannover/rosi-prototype) in [Open Journal Systems](https://pkp.sfu.ca/ojs/).
+This plugin adds impact information to to the article page. It implements ImpactViz ([Github](https://github.com/tibhannover/rosi-prototype)).
 
 ## Features
 
-Available indicators are: tba
-
-New indicators can be added.
-
-The selection of indicators that will be displayed can be customized.
+* Available indicators are: tba
+* New indicators can be added.
+* The selection of indicators that will be displayed can be customized.
 
 ## License
 
-This plugin is licensed under the GNU General Public License v2. See the file LICENSE for the complete terms of this license.
+This plugin is licensed under the GNU General Public License v3. See the file LICENSE for the complete terms of this license.
 
 ## System Requirements
 
-This plugin is compatible with OJS 3.x version and OMP 3.x version.
+This plugin is compatible with OJS 3.1 version and OMP 3.1 version.
 
 ## Installation
 
