@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * plugins/generic/openImpact/locale/de_DE/locale.xml
+  *
+  * Copyright (c) 2020 TIB Hannover
+  * Distributed under the GNU GPL v2. For full terms see the file LICENSE.
+  * Localization information: https://pkp.sfu.ca/wiki/index.php?title=OJS:_German_(de_DE)
+  * Localization strings.
+  -->
+
+<locale name="de_DE" full_name="Deutsch (Deutschland)">
+	<message key="plugins.generic.openImpact.displayName">Open Impact Plugin</message>
+	<message key="plugins.generic.openImpact.block.displayName">Open Impact Plugin</message>
+	<message key="plugins.generic.openImpact.description"><![CDATA[Füge Social-Media-Buttons zur Zeitschrift hinzu, ohne die Privatsphäre der Besucher/innen der Webseite zu gefährden. Dazu wird der <a href="https://github.com/heiseonline/openImpact" target="_blank">OpenImpact</a>-Ansatz genutzt.]]></message>
+
+	<message key="plugins.generic.openImpact.settings.indicator">Dienste</message>
+
+	<message key="plugins.generic.openImpact.settings.position">Position</message>
+	<message key="plugins.generic.openImpact.settings.position.sidebar">Seitenleiste</message>
+	<message key="plugins.generic.openImpact.settings.position.submission">Artikel- bzw. Buchseite</message>
+
+	<message key="plugins.generic.openImpact.settings.note"><![CDATA[Mehr Informationen zu den verfügbaren Indikatoren finden Sie unter: <a href="#" target="_blank">tba</a>.]]></message>
+</locale>
