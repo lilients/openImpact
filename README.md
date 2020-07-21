@@ -8,6 +8,9 @@ As a plugin for [Open Journal Systems (OJS)](https://pkp.sfu.ca/ojs/), ImpactViz
 
 ## Features
 
+ <a href="impactViz"><img src="https://raw.githubusercontent.com/lilients/img/master/impactViz.png" align="right" width="250"></a>
+  <a href="impactViz"><img src="https://raw.githubusercontent.com/lilients/img/master/impactViz_expanded.png" align="right" width="250"></a>
+
 The plugin will:
 * display the impact of the respective article in an overview below the abstract of an article,
 * visualize the impact of the article in four concepts (scientific impact, societal impact, community impact and openness),
