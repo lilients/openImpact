@@ -1,12 +1,17 @@
-# Open Impact Vizualizer Plugin
+# ImpactViz Plugin for OJS
 
-This plugin adds impact information to to the article page. It implements ImpactViz ([Github](https://github.com/tibhannover/rosi-prototype)).
+ImpactViz - Open Impact Vizualiser enables the display of open metrics on article pages
+
+Open scientometric indicators enable a comprehensible evaluation of science. The tool "ImpactViz - Open Impact Vizualizer" ([Github](https://github.com/tibhannover/rosi-prototype)), developed in the project [ROSI (Reference Implementation for Open Scientometric Indicators)](https://tib.eu/rosi-project), enables the adaptable presentation of open scientometric information from scientific publications.
+
+As a plugin for [Open Journal Systems (OJS)](https://pkp.sfu.ca/ojs/), ImpactViz enables the article page to be supplemented by the presentation of scientometric indicators of the respective article. The presentation is divided into four concepts: "Scientific Impact", "Societal Impact", "Community Impact" and "Openness". In an additional detailed view, the indicators grouped by concept can be viewed in more detail. Journal editors can change the selection of indicators and add new ones.
 
 ## Features
 
-* Available indicators are: tba
-* New indicators can be added.
-* The selection of indicators that will be displayed can be customized.
+The plugin will:
+* add small overview icons to article page (right column below other metadata),
+* display bigger overview icons and detailed views on click in article details (left column below abstract) and
+* add a new page to the about section, where the user will find some information about the displayed informations (tba).
 
 ## License
 
@@ -26,10 +31,10 @@ The following settings are available:
 - select the indicators that will be displayed
 - add a new indicator
 - determine the position of the icons on your web site (overview, sidebar or article/book page)
-- choose the orientation of the social media buttins (vertical or horizontal)
+- choose the orientation of the social media buttons (vertical or horizontal)
 
 ## Usage
-Install the plugin as described above, activate it and choose the settings you prefer. If you choose the sidebar option, you need to enable the new block under management/settings/website.
+Install the plugin as described above, activate it and choose the settings you prefer.
 
 ## Contact/Support
 
