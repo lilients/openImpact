@@ -9,8 +9,11 @@ As a plugin for [Open Journal Systems (OJS)](https://pkp.sfu.ca/ojs/), ImpactViz
 ## Features
 
 The plugin will:
-* add small overview icons to article page (right column below other metadata),
-* display bigger overview icons and detailed views on click in article details (left column below abstract) and
+* display the impact of the respective article in an overview below the abstract of an article,
+* visualize the impact of the article in four concepts (scientific impact, societal impact, community impact and openness),
+* display each concept with a colored icon when there is data available for this concept - or an empty one if no data has been found,
+* display detailed views for each concept,
+* (optionally) add small overview icons to article page (right column below other metadata) (tba) and
 * add a new page to the about section, where the user will find some information about the displayed informations (tba).
 
 ## License
