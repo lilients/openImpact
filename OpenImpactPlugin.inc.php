@@ -4,7 +4,7 @@
  * @file plugins/generic/openImpact/OpenImpactPlugin.inc.php
  *
  * Copyright (c) 2020 TIB Hannover
- * Distributed under the GNU GPL v2. For full terms see the file LICENSE.
+ * Distributed under the GNU GPL v3. For full terms see the file LICENSE.
  *
  * @class OpenImpactPlugin
  * @ingroup plugins_generic_openImpact
@@ -41,16 +41,16 @@ class OpenImpactPlugin extends GenericPlugin {
 				$context = $request->getContext();
 				$contextId = $context->getId();
 
-				// display the buttons depending in the selected position
+				// TODO: display the buttons depending in the selected position
 				switch($this->getSetting($contextId, 'selectedPosition')){
 					case 'sidebar':
-						HookRegistry::register('PluginRegistry::loadCategory', array($this, 'callbackLoadCategory'));
-						break;
-					case 'submission':
-						HookRegistry::register('Templates::Article::Main', array($this, 'addOverview'));
-						HookRegistry::register('Templates::Article::Details', array($this, 'addDetails'));
-						HookRegistry::register('Templates::Catalog::Book::Details', array($this, 'addDetails'));
+						HookRegistry::register('Templates::Article::Details', array($this, 'addOverview'));
+						HookRegistry::register('Templates::Catalog::Book::Details', array($this, 'addOverview'));
 				}
+
+				// calling hooks to display impactViz somewhere below the abstract
+				HookRegistry::register('Templates::Article::Main', array($this, 'displayImpact'));
+				HookRegistry::register('Templates::Catalog::Book::Main', array($this, 'displayImpact'));
 			}
 			return true;
 		}
@@ -84,13 +84,12 @@ class OpenImpactPlugin extends GenericPlugin {
 		$template =& $args[1];
 		$output =& $args[2];
 
-		// display detailed view of ImpactViz
+		// display overview of ImpactViz
 		$output .= '
-			<!-- details -->
-			<div id="impactviz-details"></div>
-			<!-- customize -->
-			<div id="impactviz-customize"></div>
-			';
+
+		<!-- overview -->
+		<div id="impactviz-overview"></div>
+		';
 
 	}
 
@@ -100,7 +99,7 @@ class OpenImpactPlugin extends GenericPlugin {
 	 * @param $args array The parameters to the invoked hook
 	 * @return bool
 	 */
-	function addDetails($hookName, $args) {
+	function displayImpact($hookName, $args) {
 		$template =& $args[1];
 		$output =& $args[2];
 
@@ -108,10 +107,12 @@ class OpenImpactPlugin extends GenericPlugin {
 		$context = $request->getContext();
 		$contextId = $context->getId();
 
-		// services
-		$selectedServices = $this->getSetting($contextId, 'selectedServices');
-		$preparedServices = array_map(create_function('$arrayElement', 'return \'&quot;\'.$arrayElement.\'&quot;\';'), $selectedServices);
-		$dataServicesString = implode(",", $preparedServices);
+		// indicators
+		$selectedIndicators = $this->getSetting($contextId, 'selectedIndicators');
+		$preparedServices = array_map(create_function('$arrayElement', 'return \'&quot;\'.$arrayElement.\'&quot;\';'), $selectedIndicators);
+		$selectedIndicators = implode(",", $preparedServices);
+
+		file_put_contents('debug.txt', $selectedIndicators);
 
 		// theme
 		$selectedTheme = $this->getSetting($contextId, 'selectedTheme');
@@ -123,13 +124,18 @@ class OpenImpactPlugin extends GenericPlugin {
 		$requestedUrl = $request->getCompleteUrl();
 		$baseUrl = Request::getBaseUrl();
 		$jsUrl = $baseUrl .'/'. $this->getPluginPath().'/impactviz/impact.js';
-		$jsUrltest = $baseUrl .'/'. $this->getPluginPath().'/impactviz/start.js';
 		$cssUrl = $baseUrl .'/' . $this->getPluginPath() . '/impactviz/style.css';
+
+		// paths to the impactviz files
 		$entitiesPath = $baseUrl .'/'. $this->getPluginPath().'/impactviz/schemas/';
 		$customizePath = $baseUrl .'/'. $this->getPluginPath().'/impactviz/schemas/customize.json';
 		$indicatorsPath = $baseUrl .'/'. $this->getPluginPath().'/impactviz/schemas/indicators.json';
 		$imgPath = $baseUrl .'/'. $this->getPluginPath().'/impactviz/img/';
 		$libPath = $baseUrl .'/'. $this->getPluginPath().'/impactviz/lib/';
+
+		// TODO: create own customize list from plugin settings
+
+		// TODO: include libraries
 
 		// display impactviz
 		$output .= '
@@ -153,13 +159,37 @@ class OpenImpactPlugin extends GenericPlugin {
 			<script type="text/javascript" src="'.$libPath.'paperbuzzviz/paperbuzzviz.js"></script>
 			<link rel="stylesheet" type="text/css" href="'.$libPath.'paperbuzzviz/assets/css/paperbuzzviz.css" />
 
-			<!-- overview -->
-			<div id="impactviz-overview" img-path="'.$imgPath.'" entities-path="'.$entitiesPath.'" indicators-path="'.$indicatorsPath.'" customize-path="'.$customizePath.'"></div>
+
+			<div class="item">
+				<h3>Impact</h3>
+				<!-- overview -->
+				<div id="impactviz-overview"></div>
+				<!-- details -->
+				<div id="impactviz-details"></div>
+				<!-- customize -->
+				<div id="impactviz-customize"></div>
+			</div>
 
 			<!-- impactviz scripts -->
 			<link type="text/css" rel="stylesheet" href="'.$cssUrl.'">
 			<script src="'.$jsUrl.'"></script>
-			<script src="'.$jsUrltest.'"></script>';
+
+			<script>
+
+				var identifier = "10.1038/520429a";
+				var options = {
+					entities: "'.$entitiesPath.'",
+					indicators: "'.$indicatorsPath.'",
+					customize: "'.$customizePath.'",
+					selectedIndicators: "'.$selectedIndicators.'",
+					img: "'.$imgPath.'"
+				}
+
+				impact = new ImpactViz(identifier, options);
+				impact.initViz();
+
+			</script>
+			';
 
 		return false;
 	}

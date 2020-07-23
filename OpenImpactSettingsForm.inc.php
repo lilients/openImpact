@@ -4,7 +4,7 @@
  * @file plugins/generic/openImpact/OpenImpactSettingsForm.inc.php
  *
  * Copyright (c) 2020 TIB Hannover
- * Distributed under the GNU GPL v2. For full terms see the file LICENSE.
+ * Distributed under the GNU GPL v3. For full terms see the file LICENSE.
  *
  * @class OpenImpactSettingsForm
  * @ingroup plugins_generic_openImpact
@@ -97,11 +97,6 @@ class OpenImpactSettingsForm extends Form {
 	function execute() {
 		$plugin = $this->_plugin;
 		$contextId = $this->_contextId;
-
-		// TODO: store selected indicators in JSON file (customization) in addtion to storing it in plugin settings
-		$baseUrl = Request::getBaseUrl();
-		$file = $baseUrl .'/'. $plugin->getPluginPath().'/impactviz/schemas/customize.json';
-		file_put_contents($file, json_encode($this->getData('selectedIndicators')));
 
 		$plugin->updateSetting($contextId, 'selectedPosition', $this->getData('selectedPosition'), 'string');
 		$plugin->updateSetting($contextId, 'selectedIndicators', $this->getData('selectedIndicators'), 'object');

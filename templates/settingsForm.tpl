@@ -2,7 +2,7 @@
  * plugins/generic/openImpact/templates/settingsForm.tpl
  *
  * Copyright (c) 2020 TIB Hannover
- * Distributed under the GNU GPL v2. For full terms see the file LICENSE.
+ * Distributed under the GNU GPL v3. For full terms see the file LICENSE.
  *
  * OpenImpact plugin settings
  *

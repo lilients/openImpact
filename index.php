@@ -8,7 +8,7 @@
  * @file plugins/generic/openImpact/index.php
  *
  * Copyright (c) 2020 TIB Hannover
- * Distributed under the GNU GPL v2. For full terms see the file LICENSE.
+ * Distributed under the GNU GPL v3. For full terms see the file LICENSE.
  *
  * @ingroup plugins_generic_openImpact
  * @brief Wrapper for OpenImpact plugin.
