@@ -1,22 +1,31 @@
-# Open Impact Vizualizer Plugin
+# ImpactViz Plugin for OJS
 
-This plugin adds impact information to to the article page. It implements ImpactViz ([Github](https://github.com/tibhannover/rosi-prototype) in [Open Journal Systems](https://pkp.sfu.ca/ojs/).
+ImpactViz - Open Impact Vizualiser enables the display of open metrics on article pages
+
+Open scientometric indicators enable a comprehensible evaluation of science. The tool "ImpactViz - Open Impact Vizualizer" ([Github](https://github.com/tibhannover/rosi-prototype)), developed in the project [ROSI (Reference Implementation for Open Scientometric Indicators)](https://tib.eu/rosi-project), enables the adaptable presentation of open scientometric information from scientific publications.
+
+As a plugin for [Open Journal Systems (OJS)](https://pkp.sfu.ca/ojs/), ImpactViz enables the article page to be supplemented by the presentation of scientometric indicators of the respective article. The presentation is divided into four concepts: "Scientific Impact", "Societal Impact", "Community Impact" and "Openness". In an additional detailed view, the indicators grouped by concept can be viewed in more detail. Journal editors can change the selection of indicators and add new ones.
 
 ## Features
 
-Available indicators are: tba
+ <a href="impactViz"><img src="https://raw.githubusercontent.com/lilients/img/master/impactViz.png" align="right" width="250"></a>
+  <a href="impactViz"><img src="https://raw.githubusercontent.com/lilients/img/master/impactViz_expanded.png" align="right" width="250"></a>
 
-New indicators can be added.
-
-The selection of indicators that will be displayed can be customized.
+The plugin will:
+* display the impact of the respective article in an overview below the abstract of an article,
+* visualize the impact of the article in four concepts (scientific impact, societal impact, community impact and openness),
+* display each concept with a colored icon when there is data available for this concept - or an empty one if no data has been found,
+* display detailed views for each concept,
+* (optionally) add small overview icons to article page (right column below other metadata) (tba) and
+* add a new page to the about section, where the user will find some information about the displayed informations (tba).
 
 ## License
 
-This plugin is licensed under the GNU General Public License v2. See the file LICENSE for the complete terms of this license.
+This plugin is licensed under the GNU General Public License v3. See the file LICENSE for the complete terms of this license.
 
 ## System Requirements
 
-This plugin is compatible with OJS 3.x version and OMP 3.x version.
+This plugin is compatible with OJS 3.1 version and OMP 3.1 version.
 
 ## Installation
 
@@ -28,18 +37,18 @@ The following settings are available:
 - select the indicators that will be displayed
 - add a new indicator
 - determine the position of the icons on your web site (overview, sidebar or article/book page)
-- choose the orientation of the social media buttins (vertical or horizontal)
+- choose the orientation of the social media buttons (vertical or horizontal)
 
 ## Usage
-Install the plugin as described above, activate it and choose the settings you prefer. If you choose the sidebar option, you need to enable the new block under management/settings/website.
+Install the plugin as described above, activate it and choose the settings you prefer.
 
 ## Contact/Support
 
-Contact us via support@ojs-de.net. Find out more about the project [OJS-de.net](http://www.ojs-de.net/kontakt/index.html).
+Contact us via rosi.project@tib.eu. Find out more about the project [ROSI](https://tib.eu/rosi-project).
 
 ## Version History
 
-* 1.0 - Open Impact plugin for OJS 3
+* 1.0 - Open Impact Plugin for OJS 3
 
 ## Technical Documentation
 
