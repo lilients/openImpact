@@ -41,7 +41,7 @@ class OpenImpactPlugin extends GenericPlugin {
 				$context = $request->getContext();
 				$contextId = $context->getId();
 
-				// TODO: display the buttons depending in the selected position
+				// TODO: display the buttons depending on the selected position
 				switch($this->getSetting($contextId, 'selectedPosition')){
 					case 'sidebar':
 						HookRegistry::register('Templates::Article::Details', array($this, 'addOverview'));
@@ -108,11 +108,11 @@ class OpenImpactPlugin extends GenericPlugin {
 		$contextId = $context->getId();
 
 		// indicators
+		// create own customize list from plugin settings and hand it over to impactViz
 		$selectedIndicators = $this->getSetting($contextId, 'selectedIndicators');
-		$preparedServices = array_map(create_function('$arrayElement', 'return \'&quot;\'.$arrayElement.\'&quot;\';'), $selectedIndicators);
-		$selectedIndicators = implode(",", $preparedServices);
-
 		file_put_contents('debug.txt', $selectedIndicators);
+	//	$preparedServices = array_map(create_function('$arrayElement', 'return $arrayElement;'), $selectedIndicators);
+	//	$selectedIndicators = implode(",", $preparedServices);
 
 		// theme
 		$selectedTheme = $this->getSetting($contextId, 'selectedTheme');
@@ -122,7 +122,7 @@ class OpenImpactPlugin extends GenericPlugin {
 
 		// javascript, css and backend url
 		$requestedUrl = $request->getCompleteUrl();
-		$baseUrl = Request::getBaseUrl();
+		$baseUrl = $request::getBaseUrl();
 		$jsUrl = $baseUrl .'/'. $this->getPluginPath().'/impactviz/impact.js';
 		$cssUrl = $baseUrl .'/' . $this->getPluginPath() . '/impactviz/style.css';
 
@@ -133,9 +133,7 @@ class OpenImpactPlugin extends GenericPlugin {
 		$imgPath = $baseUrl .'/'. $this->getPluginPath().'/impactviz/img/';
 		$libPath = $baseUrl .'/'. $this->getPluginPath().'/impactviz/lib/';
 
-		// TODO: create own customize list from plugin settings
-
-		// TODO: include libraries
+		// TODO: include libraries and address them using the $libPath
 
 		// display impactviz
 		$output .= '
@@ -180,8 +178,7 @@ class OpenImpactPlugin extends GenericPlugin {
 				var options = {
 					entities: "'.$entitiesPath.'",
 					indicators: "'.$indicatorsPath.'",
-					customize: "'.$customizePath.'",
-					selectedIndicators: "'.$selectedIndicators.'",
+					selectedIndicators: "['.$selectedIndicators.']",
 					img: "'.$imgPath.'"
 				}
 
