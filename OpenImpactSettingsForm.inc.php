@@ -45,7 +45,7 @@ class OpenImpactSettingsForm extends Form {
 		$plugin = $this->_plugin;
 
 		// read array of indicators from file
-		$baseUrl = Request::getBaseUrl();
+		$baseUrl = $request->getBaseUrl();
 		$file = $baseUrl .'/'. $plugin->getPluginPath().'/impactviz/schemas/indicators.json';
 
 		// handle json to store in array

@@ -122,7 +122,7 @@ class OpenImpactPlugin extends GenericPlugin {
 
 		// javascript, css and backend url
 		$requestedUrl = $request->getCompleteUrl();
-		$baseUrl = $request::getBaseUrl();
+		$baseUrl = $request->getBaseUrl();
 		$jsUrl = $baseUrl .'/'. $this->getPluginPath().'/impactviz/impact.js';
 		$cssUrl = $baseUrl .'/' . $this->getPluginPath() . '/impactviz/style.css';
 
