@@ -31,7 +31,10 @@ class OpenImpactSettingsForm extends Form {
 		$this->_contextId = $contextId;
 		$this->_plugin = $plugin;
 
-		parent::__construct($plugin->getTemplatePath() . 'settingsForm.tpl');
+		parent::__construct($plugin->getTemplateResource('settingsForm.tpl'));
+		// ojs version 3.1
+		// 	parent::__construct($plugin->getTemplatePath() . 'settingsForm.tpl');
+
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorCSRF($this));
 	}
@@ -43,10 +46,11 @@ class OpenImpactSettingsForm extends Form {
 	function initData() {
 		$contextId = $this->_contextId;
 		$plugin = $this->_plugin;
-		// TODO: solve ojs version conflict
-	//	$request = Application::get()->getRequest();
-	//	$baseUrl = $request->getBaseUrl();
-		$baseUrl = Request::getBaseUrl();
+
+		$request = Application::get()->getRequest();
+		$baseUrl = $request->getBaseUrl();
+		// ojs version 3.1
+		// $baseUrl = Request::getBaseUrl();
 
 		// read array of indicators from file
 		$file = $baseUrl .'/'. $plugin->getPluginPath().'/impactviz/schemas/indicators.json';
