@@ -66,13 +66,6 @@ class OpenImpactPlugin extends GenericPlugin {
 		return $this->getPluginPath() . '/settings.xml';
 	}
 
-	/**
-	 * @copydoc Plugin::getTemplatePath()
-	 */
-	function getTemplatePath($inCore = false) {
-		return parent::getTemplatePath($inCore) . 'templates/';
-	}
-
 
 	/**
 	 * Hook callback: Handle requests.
