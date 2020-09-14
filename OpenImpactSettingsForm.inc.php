@@ -43,9 +43,12 @@ class OpenImpactSettingsForm extends Form {
 	function initData() {
 		$contextId = $this->_contextId;
 		$plugin = $this->_plugin;
+		// TODO: solve ojs version conflict
+	//	$request = Application::get()->getRequest();
+	//	$baseUrl = $request->getBaseUrl();
+		$baseUrl = Request::getBaseUrl();
 
 		// read array of indicators from file
-		$baseUrl = $request->getBaseUrl();
 		$file = $baseUrl .'/'. $plugin->getPluginPath().'/impactviz/schemas/indicators.json';
 
 		// handle json to store in array

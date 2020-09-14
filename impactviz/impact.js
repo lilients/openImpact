@@ -9,8 +9,8 @@
 function ImpactViz(identifier, options = '') {
 
   // set default values for options
-  window.customizeFile = './schemas/customize.json';
   window.indicatorsFile = './schemas/indicators.json';
+  window.customizeFile = './schemas/customize.json';
   window.entitiesPath = './entities/';
   window.imgPath = './img/'
 
@@ -105,39 +105,59 @@ function ImpactViz(identifier, options = '') {
           let params = new URLSearchParams(location.search);
           let schemaId = params.get('schema') || '0';
 
-          // TODO: handle list of selected indicators when customization is not used
-
+          // handle list of selected indicators - otherwise read customization from file
           if(window.selectedIndicators){
 
-          }
+            // convert string back into array
+            var array = window.selectedIndicators.split(",");
 
-          $.getJSON(window.customizeFile, function(customize){
+            // get the data for this entity by identifier and write to html
+            getData(array, identifier, function(results){
+              // display the defined indicators as an preview
+              displayOverviewIndicators(schema, results);
+            });
+          }else if (window.customizeFile) {
 
-            // get the data for this entity by identifier
-            getData(customize[schemaId]['indicators'], identifier, function(results){
+            // get list of selected indicators from customization file
+            $.getJSON(window.customizeFile, function(customize){
 
-              // display data from result array for each concept at overview
-              $.each(schema.concepts, function(concept){
-
-                $.each(results[concept], function(indicatorName, value){
-
-                  $.each(schema['concepts'][concept]['overview'], function(key, overview){
-
-                    if(indicatorName == overview){
-
-                      // write to overview
-                      writeData(concept, indicatorName, value, true);
-
-                    }
-                  });
-                });
+              // get the data for this entity by identifier and write to html
+              getData(customize[schemaId]['indicators'], identifier, function(results){
+                // display the defined indicators as an preview
+                displayOverviewIndicators(schema, results);
               });
             });
-          });
+          }
         });
       });
-
   }
+}
+
+
+/*
+* display in the schema of this entity defined indicators directly below the icons as an overview
+*
+* @param schema the schema of this entity
+* @param results the list of retrieved indicators
+*/
+function displayOverviewIndicators(schema, results){
+
+  // for each concept ..
+  $.each(schema.concepts, function(concept){
+
+    // ... get data from result array ...
+    $.each(results[concept], function(indicatorName, value){
+
+      // ... and get the indicators that should be displayed ...
+      $.each(schema['concepts'][concept]['overview'], function(key, overview){
+
+        if(indicatorName == overview){
+          // ... and display them
+          writeData(concept, indicatorName, value, true);
+        }
+      });
+    });
+  });
 }
 
 

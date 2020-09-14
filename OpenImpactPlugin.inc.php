@@ -110,15 +110,8 @@ class OpenImpactPlugin extends GenericPlugin {
 		// indicators
 		// create own customize list from plugin settings and hand it over to impactViz
 		$selectedIndicators = $this->getSetting($contextId, 'selectedIndicators');
-		file_put_contents('debug.txt', $selectedIndicators);
-	//	$preparedServices = array_map(create_function('$arrayElement', 'return $arrayElement;'), $selectedIndicators);
-	//	$selectedIndicators = implode(",", $preparedServices);
-
-		// theme
-		$selectedTheme = $this->getSetting($contextId, 'selectedTheme');
-
-		// orientation
-		$selectedOrientation = $this->getSetting($contextId, 'selectedOrientation');
+		$preparedServices = array_map(create_function('$arrayElement', 'return $arrayElement;'), $selectedIndicators);
+		$selectedIndicators = implode(",", $preparedServices);
 
 		// javascript, css and backend url
 		$requestedUrl = $request->getCompleteUrl();
@@ -178,7 +171,7 @@ class OpenImpactPlugin extends GenericPlugin {
 				var options = {
 					entities: "'.$entitiesPath.'",
 					indicators: "'.$indicatorsPath.'",
-					selectedIndicators: "['.$selectedIndicators.']",
+					selectedIndicators: "'.$selectedIndicators.'",
 					img: "'.$imgPath.'"
 				}
 
