@@ -16,7 +16,6 @@ The plugin will:
 * visualize the impact of the article in four concepts (scientific impact, societal impact, community impact and openness),
 * display each concept with a colored icon when there is data available for this concept - or an empty one if no data has been found,
 * display detailed views for each concept,
-* (optionally) add small overview icons to article page (right column below other metadata) (tba) and
 * add a new page to the about section, where the user will find some information about the displayed informations (tba).
 
 ## License
@@ -25,7 +24,7 @@ This plugin is licensed under the GNU General Public License v3. See the file LI
 
 ## System Requirements
 
-This plugin is compatible with OJS 3.1 version and OMP 3.1 version.
+This plugin is compatible with OJS 3.1 version version.
 
 ## Installation
 
@@ -33,11 +32,7 @@ Clone this repo in your plugin folder (/plugins/generic) or download the code an
 
 ## Settings
 
-The following settings are available:
-- select the indicators that will be displayed
-- add a new indicator
-- determine the position of the icons on your web site (overview, sidebar or article/book page)
-- choose the orientation of the social media buttons (vertical or horizontal)
+The plugin settings allow the selection of the available indicators. New indicators can be added directly in the respective JSON file.
 
 ## Usage
 Install the plugin as described above, activate it and choose the settings you prefer.
@@ -52,7 +47,7 @@ Contact us via rosi.project@tib.eu. Find out more about the project [ROSI](https
 
 ## Technical Documentation
 
-This plugin works for OJS 3 and OMP 3 (the code is the same). The [ImpactViz Code](https://github.com/tibhannover/rosi-prototype) is included in the plugin code (MIT License). It adds the impact icons using html, css and js. The plugin uses hooks to add content, no existing templates are being overwritten. No database access is needed.
+This plugin works for OJS 3. The [ImpactViz Code](https://github.com/tibhannover/rosi-prototype) is included in the plugin code (MIT License). It adds the impact icons using html, css and js. The plugin uses hooks to add content, no existing templates are being overwritten. No database access is needed.
 
 ### Hooks
 
