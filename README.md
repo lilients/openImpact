@@ -8,8 +8,8 @@ As a plugin for [Open Journal Systems (OJS)](https://pkp.sfu.ca/ojs/), ImpactViz
 
 ## Features
 
- <a href="impactViz"><img src="https://raw.githubusercontent.com/lilients/img/master/impactViz.png" align="right" width="250"></a>
-  <a href="impactViz"><img src="https://raw.githubusercontent.com/lilients/img/master/impactViz_expanded.png" align="right" width="250"></a>
+ <a href="https://blogs.tib.eu/wp/tib/wp-content/uploads/sites/3/2020/09/impactViz_at_articlepage_small.png"><img src="https://blogs.tib.eu/wp/tib/wp-content/uploads/sites/3/2020/09/impactViz_at_articlepage_small.png" align="right" width="350"></a>
+  <a href="https://blogs.tib.eu/wp/tib/wp-content/uploads/sites/3/2020/09/impactViz_openness.png"><img src="https://blogs.tib.eu/wp/tib/wp-content/uploads/sites/3/2020/09/impactViz_openness.png" align="right" width="250"></a>
 
 The plugin will:
 * display the impact of the respective article in an overview below the abstract of an article,
@@ -31,6 +31,8 @@ This plugin is compatible with OJS 3.1 version version.
 Clone this repo in your plugin folder (/plugins/generic) or download the code and tar.gz it and upload it via the gui (Website Settings > Plugins).
 
 ## Settings
+
+ <a href="https://blogs.tib.eu/wp/tib/wp-content/uploads/sites/3/2020/09/impactViz_plugin-settings.png"><img src="https://blogs.tib.eu/wp/tib/wp-content/uploads/sites/3/2020/09/impactViz_plugin-settings.png" align="right" width="250"></a>
 
 The plugin settings allow the selection of the available indicators. New indicators can be added directly in the respective JSON file.
 
