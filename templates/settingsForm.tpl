@@ -30,7 +30,7 @@
 					{if $selectedIndicators && $id|in_array:$selectedIndicators}
 						{assign var=checked value=true}
 					{/if}
-					{fbvElement type="checkbox" name="selectedIndicators[]" id=$id value=$id label=$title checked=$checked inline=true}
+					{fbvElement type="checkbox" name="selectedIndicators[]" id=$id value=$id label=$title|escape checked=$checked inline=true translate=false}
 				{/foreach}
 			{/foreach}
 		{/fbvFormSection}
