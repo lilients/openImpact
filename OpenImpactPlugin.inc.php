@@ -32,7 +32,7 @@ class OpenImpactPlugin extends GenericPlugin {
 	/**
 	 * @copydoc Plugin::register()
 	 */
-	function register($category, $path) {
+	function register($category, $path, $mainContextId = null) {
 
 		if (parent::register($category, $path)) {
 			if ($this->getEnabled()) {
